@@ -1,0 +1,15 @@
+.texts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 2.5em;
+}
+
+.otp-area{
+    width: 100%;
+    display: flex;
+    gap: 5em;
+    align-items: center;
+    flex-direction: column;
+}

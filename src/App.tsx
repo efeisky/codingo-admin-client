@@ -1,25 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, useLocation } from "react-router-dom";
+import { routes } from "./routes/routes";
+import HomePage from "./pages/home/home_page";
+import LoginPage from "./pages/login/login_page";
+import Default from "./pages/Default";
+import { useEffect } from "react";
+import { LoginLayout } from "./pages/LoginLayout";
+import VerifyLogin from "./pages/verify_login/VerifyLogin";
 
 function App() {
+  const location = useLocation();
+
+  const setPageTitle = () => {
+    const path = location.pathname;
+    switch (path) {
+      case '/':
+        document.title = routes.default_path.title
+        break;
+
+      case '/login':
+        document.title = routes.login.title
+        break;
+        
+      case '/login':
+        document.title = routes.login.title
+        break;
+
+      case '/home':
+        document.title = routes.homepage.title
+        break;
+        
+    }
+  };
+
+  useEffect(() => {
+    setPageTitle();
+  }, [location]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path={routes.default_path.path} element={<Default />} />
+        <Route path={routes.login.path} element={<LoginLayout/>}>
+          <Route index={true} element={<LoginPage/>}/>
+          <Route path='verify' element={<VerifyLogin/>}/>
+        </Route>
+        <Route path={routes.homepage.path} element={<HomePage />} />
+      </Routes>
+    </>
   );
 }
 
