@@ -1,0 +1,19 @@
+nav.admin-navbar{
+    background-color: #424242;
+    height: 12.5vh;
+    width: 85%;
+    position: absolute;
+    left: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+.admin-navbar #navbar-name{
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+.admin-navbar #navbar-time{
+    color: #cecece;
+    font-size: 1.8rem;
+}
