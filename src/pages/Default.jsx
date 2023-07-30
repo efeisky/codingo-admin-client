@@ -1,6 +1,10 @@
 
 export default function Default() {
-    window.location.href = '/login';
+  if (localStorage.getItem('user-access-endpoint')) {
+    window.location.href = '/home'
+  }else{
+    window.location.href = '/login'
+  }
   return (
     <></>
   )

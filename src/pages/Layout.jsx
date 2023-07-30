@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-export const LoginLayout = () => {
+export const Layout = () => {
   return (
     <>
         <Outlet/>

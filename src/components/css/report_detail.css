@@ -1,0 +1,55 @@
+.reportDetailArea{
+    width: 100%;
+    height: 100%;
+    padding: 5em 2.5em;
+    gap: 5em;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.reportDetailArea #back-link{
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #000;
+    text-decoration: underline;
+}
+.reportDetailArea h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+.report-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+.report-detail #header{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.report-detail #content{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+.report-detail textarea{
+    resize: vertical;
+    cursor: default;
+    font-size: 1.6rem;
+    width: 50% !important;
+}
+.report-detail a{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+}
+.reportDetailArea .actions{
+    display: flex;
+    gap: 5em;
+}
+.reportDetailArea .actions button{
+    padding: 1em 2em;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: #d4d4d4 1px solid;
+}

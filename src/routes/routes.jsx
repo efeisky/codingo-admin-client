@@ -1,14 +1,32 @@
 export const routes = {
     homepage: {
         path:'/home',
-        title:'Anasayfa - Admin'
     },
     login: {
         path:'/login',
-        title:'Giriş Yap - Admin'
+    },
+    verify : {
+        path:'verify',
+    },
+    setting : {
+        path:'/setting',
+    },
+    lessons: {
+        path:'/lessons',
+    },
+    set_question: {
+        path:'setQuestion',
+    },
+    reports: {
+        path:'/reports',
+    },
+    profile_reports: {
+        path:'profileReports',
+    },
+    contact_reports: {
+        path:'reachWe',
     },
     default_path: {
         path:'/',
-        title:'Yönlendiriliyor..'
     },
 }
