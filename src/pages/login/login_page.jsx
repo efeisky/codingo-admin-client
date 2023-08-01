@@ -9,8 +9,8 @@ function LoginPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [userIp, setUserIp] = useState(null);
   const loginAttemptRef = useRef({});
-  const MAX_LOGIN_ATTEMPTS = process.env.REACT_APP_MAX_LOGIN_ATTEMPTS;
-  const COOL_DOWN_PERIOD = process.env.REACT_APP_COOL_DOWN_PERIOD;
+  const MAX_LOGIN_ATTEMPTS = 5
+  const COOL_DOWN_PERIOD = 600000;
 
 
   useEffect(() => {
