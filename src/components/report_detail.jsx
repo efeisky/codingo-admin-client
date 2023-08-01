@@ -14,7 +14,7 @@ export const ReportHeader = ({header}) => {
       </div>
     );
   };
-export const ReportContent = ({content, type = 'text', editable = false, onChange = (e) => {}}) => {
+export const ReportContent = ({content, type = 'text', editable = false, onChange = (e) => {}, placeholder = '', isSecret = false, defaultInputContent = ''}) => {
     return (
         <>
         {
@@ -28,12 +28,14 @@ export const ReportContent = ({content, type = 'text', editable = false, onChang
                 type == 'link' ?
                 (
                     <span><a href={`https://codingoweb.netlify.app/${content}/profile`} target="_blank" >@{content}</a></span>
-                ) : (
+                ) : type == 'textarea' ? 
+                (
                   editable ?
                   (<textarea defaultValue={content} onChange={onChange}></textarea>)
                   :
                   (<textarea readOnly={true} value={content}></textarea>)
                 )
+                : (<input onChange={onChange} defaultValue={defaultInputContent} type={isSecret ? 'password' : 'text'} placeholder={placeholder} required/>)
             )
         }
         </>

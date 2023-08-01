@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+.home-area{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.admin-area{
+    font-family: 'Inter', sans-serif;
+    padding: 2.5em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em;
+    overflow: auto;
+}
+.admin-area h1{
+    font-size: 2.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+.admin-area .question-create-type-area{
+    display: flex;
+    gap: 5em;
+}
+.admin-area .question-create-type-area button {
+    padding: 1em 2em;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 1.5rem;
+    border:.1rem solid #ccc;
+    border-radius: 1rem; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.admin-area .question-create-type-area button:hover {
+    background-color: #e0e0e0;
+}
+.admin-area .information-make-area{
+    border-radius: 2.5rem;
+    padding: 2em 1.5em;
+    width: 80%;
+}
+.admin-area .information-make-area h2{
+    font-size: 1.8rem;
+    font-weight: 500;   
+    margin-bottom: 1em;
+}
+.admin-area .information-make-area .select-set{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2.5em;
+}
+.admin-area .information-make-area .select-set #selectLabel{
+    font-size: 1.4rem;
+}
+.admin-area .information-make-area #question-button{
+    padding: 1em 2em;
+    background-color: #242424;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border:.1rem solid #3f3f3f;
+    border-radius: 1rem; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

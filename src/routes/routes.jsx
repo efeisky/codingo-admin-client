@@ -14,8 +14,23 @@ export const routes = {
     lessons: {
         path:'/lessons',
     },
+    setAdmin: {
+        path:'/setAdmin',
+    },
+    showAdmin: {
+        path:'show',
+    },
+    addAdmin: {
+        path:'add',
+    },
     set_question: {
         path:'setQuestion',
+    },
+    set_lesson: {
+        path:'setLesson',
+    },
+    set_information: {
+        path:'setInformation',
     },
     reports: {
         path:'/reports',

@@ -75,11 +75,6 @@ const SettingPage = () => {
               </ReportDetail>
               
               <ReportDetail>
-                <ReportHeader header={"Admin Şifresi"} />
-                <ReportContent content={`${adminValue.admin_level}. Seviye`}/>
-              </ReportDetail>
-              
-              <ReportDetail>
                 <ReportHeader header={"512 Bit Gizli Anahtar"} />
                 <SecretCopyContent show_content={secretValue.secret_key} secret_content={adminValue.admin_key}/>
               </ReportDetail>
@@ -91,7 +86,7 @@ const SettingPage = () => {
               
               <ReportDetail>
                 <ReportHeader header={"Hesap Durumu"} />
-                <ReportContent content={`${adminValue.admin_status ? 'Aktif Hesap' : 'Deaktif Hesap'}`}/>
+                <ReportContent content={`${adminValue.admin_status ? 'Aktif Hesap' : 'İnaktif Hesap'}`}/>
               </ReportDetail>
 
               <ReportDetail>

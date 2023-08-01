@@ -43,9 +43,8 @@ const AdminSidebar = ({accessLevel}) => {
             {accessLevel >= 2 ? <Link  to={'/lessons/setLesson'} title='Ders Ekle' id="item">Ders Ekle</Link> : null}
             {accessLevel >= 2 ? <Link  to={'/lessons/setInformation'} title='Bilgilendirme Ekle' id="item">Bilgilendirme Ekle</Link> : null}
 
+            {accessLevel === 3 ? <Link  to={'/setAdmin/show'} title='Admin Ekle' id="item">Adminler</Link> : null}
             {accessLevel === 3 ? <Link  to={'/setAdmin/add'} title='Admin Ekle' id="item">Admin Ekle</Link> : null}
-            {accessLevel === 3 ? <Link  to={'/setAdmin/delete'} title='Admin Sil' id="item">Admin Sil</Link> : null}
-            {accessLevel === 3 ? <Link  to={'/setAdmin/edit'} title='Admin Düzenle' id="item">Admin Düzenle</Link> : null}
         </div>
         <div id="sidebar-copyright">
             <div id="device-charge-status">{batteryLevel != null ? `${batteryLevel} Şarjın Kaldı` : 'Cihaz Şarjı Bilinmiyor'}</div>

@@ -12,6 +12,12 @@ import ContactDetailReport from "./pages/contact_reports/detail_report/contact_d
 import SetQuestion from "./pages/lesson/set_question/set_question";
 import QuestionSetByID from "./pages/lesson/set_question/question_set_id/question_set_by_id";
 import SettingPage from "./pages/setting/setting_page";
+import ShowAdminPage from "./pages/admin/show_admin/show_admin_page";
+import DetailAdminPage from "./pages/admin/detail_admin/detail_admin_page";
+import AddAdminPage from "./pages/admin/add_admin/add_admin_page";
+import SetInformation from "./pages/lesson/set_information/set_information";
+import InformationSetByID from "./pages/lesson/set_information/information_set_id/information_set_by_id";
+import SetLesson from "./pages/lesson/set_lesson/set_lesson";
 
 function App() {
   document.title = 'Admin Yönetim Paneli'
@@ -41,6 +47,13 @@ function App() {
       
       <Route path={routes.lessons.path} element={<Layout />}>
         <Route index element={<HomePage />} />
+        <Route path={routes.set_information.path} element={<Layout />}>
+          <Route index element={<SetInformation />} />
+          <Route path={':id'} element={<InformationSetByID/>} />
+        </Route>
+        
+        <Route path={routes.set_lesson.path} element={<SetLesson />}/>
+
         <Route path={routes.set_question.path} element={<Layout />}>
           <Route index element={<SetQuestion />} />
           <Route path={':id'} element={<QuestionSetByID/>} />
@@ -48,6 +61,15 @@ function App() {
       </Route>
       
       <Route path={routes.setting.path} element={<SettingPage />} />
+
+      
+      <Route path={routes.setAdmin.path} element={<Layout />}>
+        <Route index element={<HomePage/>} />
+        <Route path={`:id/process`} element={<DetailAdminPage/>} />
+        <Route path={routes.showAdmin.path} element={<ShowAdminPage />} />
+        <Route path={routes.addAdmin.path} element={<AddAdminPage />} />
+      </Route>
+      
     </Routes>
   );
 }

@@ -3,5 +3,13 @@ enum QuestionTypes {
   Manual = "Manual",
   AI = "AI",
 }
+enum InformationTypes {
+  NounSelected = "Noun Selected",
+  Manual = "Manual",
+  AI = "AI",
+}
 
-export default QuestionTypes;
+export {
+  QuestionTypes,
+  InformationTypes
+};

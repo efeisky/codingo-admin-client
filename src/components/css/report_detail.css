@@ -36,6 +36,12 @@
     font-size: 1.6rem;
     width: 50% !important;
 }
+.report-detail input{
+    cursor: text;
+    font-size: 1.6rem;
+    width: 30% !important;
+    height: 2.5rem;
+}
 .report-detail a{
     font-size: 1.6rem;
     font-weight: 500;

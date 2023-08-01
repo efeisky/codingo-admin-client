@@ -38,10 +38,17 @@ const classOption: Option[] = [
 ];
 
 
+const accessOption: Option[] = [
+    { value: 1, label: '1. Seviye' },
+    { value: 2, label: '2. Seviye' },
+    { value: 3, label: '3. Seviye' },
+];
+
 export {
     typeOptions,
     levelOptions,
     answerOptions,
     lessonOption,
-    classOption
+    classOption,
+    accessOption
 }

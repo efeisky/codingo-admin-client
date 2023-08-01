@@ -4,7 +4,7 @@ import CheckAuth from '../../../../auth/auth_control';
 import LoadingBar from '../../../../components/loading_bar';
 import AdminNavbar from '../../../../components/admin_navbar';
 import AdminSidebar from '../../../../components/admin_sidebar';
-import QuestionTypes from '../../../../types/question_type';
+import {QuestionTypes} from '../../../../types/question_type';
 import { AddQuestionFunction, setCreateQuestionAsAI } from '../../../../functions/question_functions';
 import { QuestionMakeModel } from '../../../../model/question_model';
 import { ReportContent, ReportDetail, ReportHeader } from '../../../../components/report_detail';
