@@ -1,7 +1,7 @@
 {
   "name": "codingo_client_app-main",
   "version": "0.1.0",
-  "proxy": "http://localhost:8020/",
+  "proxy": "https://codingo-admin-backend.onrender.com/",
   "private": true,
   "dependencies": {
     "@types/jest": "^27.5.2",
