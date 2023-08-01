@@ -47,7 +47,7 @@ function LoginPage() {
     }
     try {
       const {data} = await axios.post(
-        "/login",
+        "https://codingo-admin-backend.onrender.com/login",
         {
           email : email,
           password : password,

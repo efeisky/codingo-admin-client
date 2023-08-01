@@ -16,7 +16,7 @@ export default async function getIp() {
 
   try {
     isRequestPending = true;
-    const { data } = await axios.get('/getIp');
+    const { data } = await axios.get('https://codingo-admin-backend.onrender.com/getIp');
     cachedIp = data.ip;
     return data.ip;
   } catch (error) {

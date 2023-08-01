@@ -3,7 +3,7 @@ import {ProfileReportModel, ContactReportModel} from '../model/report_model';
 const SetReportData = async (reportType, readStatus, setReportList, setReportAreaStatus) => {
     setReportAreaStatus(true);
     const {data} = await axios.get(
-      reportType === 'profile' ? '/reports/profileReports' : '/reports/contactReports',
+      reportType === 'profile' ? 'https://codingo-admin-backend.onrender.com/reports/profileReports' : 'https://codingo-admin-backend.onrender.com/reports/contactReports',
       {
         params : {
             read_status : readStatus
@@ -34,7 +34,7 @@ const SetReportData = async (reportType, readStatus, setReportList, setReportAre
 const GetReportDetail = async(reportType, reportId, setReportData, setIsDetailsLoading) => {
     setIsDetailsLoading(true);
     const {data} = await axios.get(
-      reportType === 'profile' ? '/reports/profileDetail' : '/reports/contactDetail',
+      reportType === 'profile' ? 'https://codingo-admin-backend.onrender.com/reports/profileDetail' : 'https://codingo-admin-backend.onrender.com/reports/contactDetail',
       {
         params : {
             reportId : reportId
@@ -61,7 +61,7 @@ const GetReportDetail = async(reportType, reportId, setReportData, setIsDetailsL
 }
 const ChangeReportStatus = async(reportType, reportId, activeStatus, setIsDetailsLoading) => {
     setIsDetailsLoading(true);
-    const { data } = await axios.patch('/reports/changeStatus', {
+    const { data } = await axios.patch('https://codingo-admin-backend.onrender.com/reports/changeStatus', {
         reportType: reportType,
         reportId: reportId,
         activeStatus: activeStatus,

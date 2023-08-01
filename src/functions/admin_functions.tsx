@@ -4,7 +4,7 @@ import { AdminModel } from "../model/admin_model";
 const GetAdmin = async(setAdminValue : any, setIsUploading : any) => {
     setIsUploading(true);
     const {data} = await axios.get(
-      '/admin/getAdmin'
+      'https://codingo-admin-backend.onrender.com/admin/getAdmin'
     )
     if (data.status) {
         setAdminValue(data.result);
@@ -16,7 +16,7 @@ const GetAdmin = async(setAdminValue : any, setIsUploading : any) => {
 const DetailAdminByID = async(id : number, setAdminValue : any, setSecretValue : any, setIsUploading : any) => {
     setIsUploading(true);
     const {data} = await axios.get(
-      '/admin/detailAdmin',
+      'https://codingo-admin-backend.onrender.com/admin/detailAdmin',
       {
         params : {
             id : id
@@ -39,7 +39,7 @@ const DetailAdminByID = async(id : number, setAdminValue : any, setSecretValue :
 const ChangeAdminStatus = async(id : number, setIsUploading : any) => {
   setIsUploading(true);
   const {data} = await axios.patch(
-    '/admin/changeStatus',
+    'https://codingo-admin-backend.onrender.com/admin/changeStatus',
     {
       id : id
     }
@@ -53,7 +53,7 @@ const ChangeAdminStatus = async(id : number, setIsUploading : any) => {
 const ChangeAdminKey = async(id : number, setIsUploading : any) => {
   setIsUploading(true);
   const {data} = await axios.patch(
-    '/admin/changeKey',
+    'https://codingo-admin-backend.onrender.com/admin/changeKey',
     {
       id : id
     }
@@ -68,7 +68,7 @@ const ChangeAdminKey = async(id : number, setIsUploading : any) => {
 const CreateAdminUser = async(value : any, setIsLoading : any) => {
   setIsLoading(true);
   const {data} = await axios.post(
-    '/admin/add',
+    'https://codingo-admin-backend.onrender.com/admin/add',
     {
       ...value
     }
@@ -91,7 +91,7 @@ const CheckAdminData = (value : AdminModel) => {
 const DeleteAdmin = async(id : number, setIsUploading : any) => {
   setIsUploading(true);
   const {data} = await axios.delete(
-    '/admin/delete',
+    'https://codingo-admin-backend.onrender.com/admin/delete',
     {
       params : {
         id : id

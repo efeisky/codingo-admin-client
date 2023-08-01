@@ -3,7 +3,7 @@ import axios from "axios";
 const GetSetting = async(setAdminValue : any, setSecretValue : any, setIsUploading : any) => {
     setIsUploading(true);
     const {data} = await axios.get(
-      '/getSetting',
+      'https://codingo-admin-backend.onrender.com/getSetting',
       {
         params : {
             name : JSON.parse(sessionStorage.getItem('admin-info')!).name

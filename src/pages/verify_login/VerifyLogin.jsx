@@ -18,7 +18,7 @@ const VerifyLogin = () => {
     async function checkToken() {
         const token = params.get('token');
         const {data} = await axios.get(
-            '/controlToken',
+            'https://codingo-admin-backend.onrender.com/controlToken',
             {
                 params:{
                     token : token,
@@ -51,7 +51,7 @@ const VerifyLogin = () => {
     
     const CreatePermanentToken = async() => {
         const {data} = await axios.post(
-            '/setPermanentToken',
+            'https://codingo-admin-backend.onrender.com/setPermanentToken',
             {
                 id : datas.id
             }

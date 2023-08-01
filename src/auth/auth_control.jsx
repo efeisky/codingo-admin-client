@@ -5,7 +5,7 @@ const CheckAuth = async(setAdminInfo, setIsUploading) => {
       setIsUploading(false)
     }else{
       const {data} = await axios.get(
-        '/getAdminInfo',
+        'https://codingo-admin-backend.onrender.com/getAdminInfo',
         {
           params : {
             token : localStorage.getItem('user-access-endpoint')

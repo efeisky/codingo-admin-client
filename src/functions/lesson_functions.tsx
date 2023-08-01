@@ -27,7 +27,7 @@ const setClassSelectBox = async(option : Option,setFeature : any,  setLoading : 
 const AddLessonFunction = async(lesson : LessonModel, setLoading: any) => {
     setLoading(true);
     const {data} = await axios.post(
-      '/lessons/addLesson',
+      'https://codingo-admin-backend.onrender.com/lessons/addLesson',
       {
         lesson_type : lesson.lesson_type,
         lesson_class : parseInt(lesson.lesson_class),

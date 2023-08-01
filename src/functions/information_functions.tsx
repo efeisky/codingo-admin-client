@@ -39,7 +39,7 @@ const setSubjectSelectBox = async(option : Option,setInformationFeatures : any, 
 const setLessonOptions = async(informationFeatures : any,  setInformationAreaLoading : any,setLessonSubjectOption : any) => {
     setInformationAreaLoading(true);
     const {data} = await axios.get(
-      '/lessons/getUnInformationLessons',
+      'https://codingo-admin-backend.onrender.com/lessons/getUnInformationLessons',
       {
         params : {
             lesson_type : informationFeatures.information_lesson.value,
@@ -69,7 +69,7 @@ const setLessonOptions = async(informationFeatures : any,  setInformationAreaLoa
 const setCreateInformationAsAI = async(lessonId : number, setIsDetailsUploading : any) => {
     setIsDetailsUploading(true);
     const {data} = await axios.get(
-      '/lessons/createInformationAsAI',
+      'https://codingo-admin-backend.onrender.com/lessons/createInformationAsAI',
       {
         params : {
             id : lessonId
@@ -92,7 +92,7 @@ const setCreateInformationAsAI = async(lessonId : number, setIsDetailsUploading 
 const AddInformationFunction = async(information : InformationModel, lessonID : number, setInformationAreaLoading: any) => {
     setInformationAreaLoading(true);
     const {data} = await axios.post(
-      '/lessons/addInformation',
+      'https://codingo-admin-backend.onrender.com/lessons/addInformation',
       {
         information : information,
         lesson_id : lessonID

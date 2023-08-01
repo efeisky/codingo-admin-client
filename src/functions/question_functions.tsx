@@ -38,7 +38,7 @@ const setSubjectSelectBox = async(option : Option,setQuestionFeatures : any,  se
 const setLessonOptions = async(questionFeatures : any,  setQuestionAreaLoading : any,setLessonSubjectOption : any) => {
     setQuestionAreaLoading(true);
     const {data} = await axios.get(
-      '/lessons/getLessons',
+      'https://codingo-admin-backend.onrender.com/lessons/getLessons',
       {
         params : {
             lesson_type : questionFeatures.question_lesson.value,
@@ -68,7 +68,7 @@ const setLessonOptions = async(questionFeatures : any,  setQuestionAreaLoading :
 const setCreateQuestionAsAI = async(questionId : number, setIsDetailsUploading : any) => {
     setIsDetailsUploading(true);
     const {data} = await axios.get(
-      '/lessons/createQuestionAsAI',
+      'https://codingo-admin-backend.onrender.com/lessons/createQuestionAsAI',
       {
         params : {
             id : questionId
@@ -91,7 +91,7 @@ const setCreateQuestionAsAI = async(questionId : number, setIsDetailsUploading :
 const AddQuestionFunction = async(question : QuestionMakeModel, lessonID : number, setQuestionAreaLoading: any) => {
     setQuestionAreaLoading(true);
     const {data} = await axios.post(
-      '/lessons/addQuestion',
+      'https://codingo-admin-backend.onrender.com/lessons/addQuestion',
       {
         question : question,
         lesson_id : lessonID
