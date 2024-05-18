@@ -79,11 +79,19 @@ const QuestionSetByID = () => {
     const addQuestion = async()=> {
         await AddQuestionFunction(question, parseInt(id!), setIsDetailsUploading)
     }
-    const addQuestionFromList = ()=> {
-        questionList.map(async (question) => {
-            await AddQuestionFunction(question, parseInt(id!), setIsDetailsUploading);
-        })
+    const addQuestionFromList = async () => {
+        for (let i = 0; i < questionList.length; i++) {
+            await AddQuestionFunction(questionList[i], parseInt(id!), setIsDetailsUploading);
+            if (i >= 3) {
+                await wait(1000); // 1 saniye bekle
+            }
+        }
     }
+    
+    const wait = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     const editQuestion = async()=> {
         sessionStorage.setItem('edited-question',JSON.stringify(question));
         window.location.href = `${id}?type=${QuestionTypes.Manual}&fromUrl=${QuestionTypes.AI}`
@@ -143,6 +151,7 @@ const QuestionSetByID = () => {
       };
       const paste_area_value = `
         Sen bir eğitim amaçlı soru üreticisin. Kullanıcıdan konu içeriği alarak onunla alakalı sorular üreteceksin. Üreteceğin format aşağıda yer almaktadır
+        [
         {
         status : true
         level : Soru Seviyesi easy medium hard very-hard
@@ -154,6 +163,7 @@ const QuestionSetByID = () => {
         d : D şıkkı
         answer : Soru Cevabı A ise 1, B ise 2, C ise 3, D ise 4
         }
+        ]
 
         Eğer soru üretemiyorsan 
         {
