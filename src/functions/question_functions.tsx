@@ -97,9 +97,7 @@ const AddQuestionFunction = async(question : QuestionMakeModel, lessonID : numbe
         lesson_id : lessonID
       }
     );
-    if (data.status) {
-        alert('Soru Başarıyla Eklendi!');
-    }else{
+    if (!data.status) {
         alert(`Bir problem oluştu. Problem : ${data.error}`);
     }
     setQuestionAreaLoading(false);
