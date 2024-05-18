@@ -78,6 +78,7 @@ const QuestionSetByID = () => {
 
     const addQuestion = async()=> {
         await AddQuestionFunction(question, parseInt(id!), setIsDetailsUploading)
+        alert("Soru eklenmiştir")
     }
     const addQuestionFromList = async () => {
         for (let i = 0; i < questionList.length; i++) {
@@ -86,6 +87,7 @@ const QuestionSetByID = () => {
                 await wait(1000); // 1 saniye bekle
             }
         }
+        alert("Sorular eklenmiştir")
     }
     
     const wait = (ms) => {
