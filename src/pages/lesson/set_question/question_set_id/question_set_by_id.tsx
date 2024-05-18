@@ -35,6 +35,16 @@ const QuestionSetByID = () => {
         content : '',
         level : '',
     })
+    const [questionList, setQuestionList] = useState<QuestionMakeModel[]>([]);
+    const addQuestionToList = (newQuestion: QuestionMakeModel) => {
+        setQuestionList(prevQuestionList => [...prevQuestionList, newQuestion]);
+    };
+    useEffect(() => {
+        if (questionList.length > 0) {
+            addQuestionFromList();
+        }
+    }, [questionList])
+    
     const [isOpenedEverything, setIsOpenedEverything] = useState(false)
     useEffect(() => {
         const setData = async () => {
@@ -69,6 +79,11 @@ const QuestionSetByID = () => {
     const addQuestion = async()=> {
         await AddQuestionFunction(question, parseInt(id!), setIsDetailsUploading)
     }
+    const addQuestionFromList = ()=> {
+        questionList.map(async (question) => {
+            await AddQuestionFunction(question, parseInt(id!), setIsDetailsUploading);
+        })
+    }
     const editQuestion = async()=> {
         sessionStorage.setItem('edited-question',JSON.stringify(question));
         window.location.href = `${id}?type=${QuestionTypes.Manual}&fromUrl=${QuestionTypes.AI}`
@@ -78,37 +93,60 @@ const QuestionSetByID = () => {
       
         try {
           const parsedData = JSON.parse(pastedText);
-      
-          if (parsedData && typeof parsedData === 'object') {
-            if (
-                'a' in parsedData &&
-                'b' in parsedData &&
-                'c' in parsedData &&
-                'd' in parsedData &&
-                'answer' in parsedData &&
-                'type' in parsedData &&
-                'content' in parsedData &&
-                'level' in parsedData
-              ) {
-                alert('Yapıştırdığınız metin uygulanıyor..');
-                setQuestion(parsedData)
+        
+          if (!Array.isArray(parsedData)) {
+            if (parsedData && typeof parsedData === 'object') {
+                if (
+                    'a' in parsedData &&
+                    'b' in parsedData &&
+                    'c' in parsedData &&
+                    'd' in parsedData &&
+                    'answer' in parsedData &&
+                    'type' in parsedData &&
+                    'content' in parsedData &&
+                    'level' in parsedData
+                  ) {
+                    alert('Yapıştırdığınız metin uygulanıyor..');
+                    setQuestion(parsedData)
+                  } else {
+                    alert('Yapıştırdığınız metin ana değerleri içermiyor!');
+                  }
               } else {
-                alert('Yapıştırdığınız metin ana değerleri içermiyor!');
+                alert('Yapıştırdığınız metin kontrol edilebilir değil!')
               }
-          } else {
-            alert('Yapıştırdığınız metin kontrol edilebilir değil!')
+          }else{
+            parsedData.map((question_sample) => {
+                if (question_sample && typeof question_sample === 'object') {
+                    if (
+                        'a' in question_sample &&
+                        'b' in question_sample &&
+                        'c' in question_sample &&
+                        'd' in question_sample &&
+                        'answer' in question_sample &&
+                        'type' in question_sample &&
+                        'content' in question_sample &&
+                        'level' in question_sample
+                      ) {
+                        addQuestionToList(question_sample);
+                      } else {
+                        alert('Yapıştırdığınız metin ana değerleri içermiyor!');
+                      }
+                  } else {
+                    alert('Yapıştırdığınız metin kontrol edilebilir değil!')
+                  }
+            })
           }
+          
         } catch (error) {
             alert('Yapıştırdığınız metin kontrol edilebilir değil!')
         }
       };
       const paste_area_value = `
         Sen bir eğitim amaçlı soru üreticisin. Kullanıcıdan konu içeriği alarak onunla alakalı sorular üreteceksin. Üreteceğin format aşağıda yer almaktadır
-
         {
         status : true
-        level : Soru Seviyesi
-        type : Soru Tipi, resimli ise image, resimsiz ise standart
+        level : Soru Seviyesi easy medium hard very-hard
+        type : standart
         content : Soru İçeriği
         a : A şıkkı
         b : B şıkkı
@@ -125,6 +163,7 @@ const QuestionSetByID = () => {
 
         Konu İçeriği : (Kullanıcı Burayı Ayarlayacak)
         Sadece bu jsonu döndür. Başka mesaj döndürme!
+        8 tane soru üret. Liste halinde olsun.
       `
     return (
         <>
