@@ -87,10 +87,10 @@ const QuestionSetByID = () => {
                 await wait(1000); // 1 saniye bekle
             }
         }
-        alert("Sorular eklenmiştir")
+        alert("Sorular eklenmiştir");
     }
     
-    const wait = (ms : int) => {
+    const wait = async (ms: number): Promise<void> => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
