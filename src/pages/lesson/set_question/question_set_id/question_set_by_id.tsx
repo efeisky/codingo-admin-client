@@ -90,7 +90,7 @@ const QuestionSetByID = () => {
         alert("Sorular eklenmiştir")
     }
     
-    const wait = (ms) => {
+    const wait = (ms : int) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
